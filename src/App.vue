@@ -25,6 +25,30 @@ body {
 a {
   text-decoration: none;
 }
+
+.content {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 260px;
+}
+
+
+h1 {
+  text-transform: uppercase;
+  font-size: 40px;
+  margin: 190px 0 26px 0;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 35px;
+  margin: 0;
+}
+
+h3 {
+  font-weight: 400;
+  margin: 0 auto;
+}
 </style>
 <script>
 import Footer from "@/components/Footer";

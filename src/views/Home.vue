@@ -1,10 +1,12 @@
 <template>
-<div class="container">
-  <section class="content">
-    <UpperContent/>
-    <BottomPhotos/>
-  </section>
-</div>
+  <main>
+    <div class="container">
+      <section class="content">
+        <UpperContent/>
+        <BottomPhotos/>
+      </section>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -21,9 +23,4 @@ export default {
 </script>
 
 <style scoped>
-.content {
-  display: flex;
-  flex-flow: column;
-  margin-bottom: 260px;
-}
 </style>
