@@ -3,8 +3,11 @@
 </template>
 
 <script>
-
 export default {
-  name: 'Home'
+  name: "Service"
 }
 </script>
+
+<style scoped>
+
+</style>
