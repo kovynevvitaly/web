@@ -4,25 +4,25 @@
 </template>
 
 <style>
+.container {
+  max-width: 1530px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #000;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+a {
+  text-decoration: none;
 }
 </style>
 <script>
