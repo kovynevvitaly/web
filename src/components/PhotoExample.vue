@@ -1,5 +1,5 @@
 <template>
-  <div class="photo-example">
+  <div class="photo-example" :id="id">
     <h3 class="photo-title">{{ photoTitle }}</h3>
     <img :src="imgSrc" :alt="imgAlt" class="photo">
   </div>
@@ -8,7 +8,7 @@
 <script>
 export default {
   name: "PhotoExample",
-  props: ["photoTitle", "imgSrc", "imgAlt"]
+  props: ["photoTitle", "imgSrc", "imgAlt", "id"]
 }
 </script>
 
@@ -27,5 +27,22 @@ export default {
 
 .photo-title {
   margin-bottom: 50px;
+}
+.photo-example#family {
+  max-width: 564px;
+}
+
+#family > img {
+  width: 564px;
+  height: 375px;
+}
+
+.photo-example#personal {
+  max-width: 450px;
+}
+
+#personal > img {
+  width: 450px;
+  height: 375px;
 }
 </style>
