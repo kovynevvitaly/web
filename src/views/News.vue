@@ -1,5 +1,6 @@
 <template>
-  <h1>News</h1>
+  <h1>Новости</h1>
+
 </template>
 
 <script>
