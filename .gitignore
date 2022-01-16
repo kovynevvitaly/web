@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+frontend/node_modules
 /dist
 
 
@@ -19,5 +20,9 @@ pnpm-debug.log*
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
+
+WebBackend/.vs
+WebBackend/bin
+WebBackend/obj
+WebBackend/*.csproj.user
