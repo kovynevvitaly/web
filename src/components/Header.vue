@@ -6,6 +6,8 @@
         <router-link :to="{name: 'Home'}" class="nav-link" active-class="link-active">Главная</router-link>
         <router-link :to="{name: 'Service'}" class="nav-link" active-class="link-active">Услуги</router-link>
         <router-link :to="{name: 'Portfolio'}" class="nav-link" active-class="link-active">Портфолио</router-link>
+        <router-link :to="{name: 'News'}" class="nav-link" active-class="link-active">Новости</router-link>
+        <router-link :to="{name: 'Register'}" class="nav-link" active-class="link-active">Регистрация</router-link>
       </nav>
     </div>
   </header>
