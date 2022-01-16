@@ -49,6 +49,16 @@ h3 {
   font-weight: 400;
   margin: 0 auto;
 }
+
+.photo {
+  height: 500px;
+  border-radius: 25px;
+}
+
+.photos {
+  display: flex;
+  justify-content: space-between;
+}
 </style>
 <script>
 import Footer from "@/components/Footer";

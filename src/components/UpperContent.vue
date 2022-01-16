@@ -34,11 +34,6 @@ export default {
   flex-flow: column;
 }
 
-.photos {
-  display: flex;
-  justify-content: space-between;
-}
-
 .main-photo {
   margin-top: 150px;
   height: 725px;

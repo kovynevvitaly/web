@@ -13,10 +13,6 @@ export default {
 </script>
 
 <style scoped>
-.photo {
-  height: 500px;
-  border-radius: 25px;
-}
 
 .photo-example {
   display: flex;
