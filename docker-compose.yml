@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  pgdatabase:
+    container_name: pgdatabase
+    image: postgres:14
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgresdb
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpassword1_
+    networks:
+      - web-app-network
+
+  backend:
+    build: ./WebBackend
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    ports:
+      - "80:80"
+    networks:
+      - web-app-network
+
+volumes:
+  pg-data:
+    driver: local
+
+networks:
+  web-app-network:
+    driver: bridge
