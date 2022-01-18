@@ -7,7 +7,9 @@
         <router-link :to="{name: 'Service'}" class="nav-link" active-class="link-active">Услуги</router-link>
         <router-link :to="{name: 'Portfolio'}" class="nav-link" active-class="link-active">Портфолио</router-link>
         <router-link :to="{name: 'News'}" class="nav-link" active-class="link-active">Новости</router-link>
-        <router-link :to="{name: 'Register'}" class="nav-link" active-class="link-active">Регистрация</router-link>
+        <router-link :to="{name: 'Register'}" class="nav-link" active-class="link-active" v-if="!isAuthorized()">Регистрация</router-link>
+        <a href="/" v-on:click="logOut" v-if="isAuthorized()">{{ email }}</a>
+        <a href="/" v-on:click="logOut" v-if="isAuthorized()">Выйти</a>
       </nav>
     </div>
   </header>
@@ -15,7 +17,25 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  data: function() {
+    return {
+      email: "",
+    }
+  },
+  methods: {
+    isAuthorized() {
+      console.log("IsAuthorized: " + sessionStorage.getItem("accessToken"));
+      return sessionStorage.getItem("accessToken") !== null;
+    },
+    logOut() {
+      sessionStorage.removeItem("accessToken");
+      sessionStorage.removeItem("email");
+    }
+  },
+  mounted() {
+    this.email = sessionStorage.getItem("email");
+  }
 }
 </script>
 

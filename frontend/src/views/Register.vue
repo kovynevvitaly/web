@@ -8,11 +8,13 @@
     <label for="passwordConfirm">Подтверждение пароля</label>
     <input type="password" id="passwordConfirm" v-model="passwordConfirm">
     <router-link :to="{name: 'Login'}">Войти, если уже зарегистрированы</router-link>
-    <button type="submit" v-on:submit="onSubmit">Зарегистрироваться</button>
+    <button type="button" v-on:click="onClick">Зарегистрироваться</button>
   </form>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "Register",
   data: function() {
@@ -22,8 +24,16 @@ export default {
       passwordConfirm: ""
     }
   }, methods: {
-    onSubmit() {
-
+    onClick() {
+      axios.post("http://localhost:9000/api/User/Register", {
+        email: this.email,
+        password: this.password,
+        confirmPassword: this.passwordConfirm
+      }).then((response) => {
+        sessionStorage.setItem("accessToken", response.data.accessToken);
+        sessionStorage.setItem("email", response.data.email);
+        this.$router.push({ name: "Home" });
+      })
     }
   }
 }

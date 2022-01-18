@@ -6,11 +6,13 @@
     <label for="password">Пароль</label>
     <input type="password" id="password" v-model="password">
     <router-link :to="{name: 'Register'}">Зарегистрироваться</router-link>
-    <button type="submit" v-on:submit="onSubmit">Войти</button>
+    <button type="button" v-on:click="onClick">Войти</button>
   </form>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "Login",
   data: function() {
@@ -19,8 +21,15 @@ export default {
       password: "",
     }
   }, methods: {
-    onSubmit() {
-
+    onClick() {
+      axios.post("http://localhost:9000/api/User/Login", {
+        email: this.email,
+        password: this.password,
+      }).then((response) => {
+        sessionStorage.setItem("accessToken", response.data.accessToken);
+        sessionStorage.setItem("email", response.data.email);
+        this.$router.push({ name: "Home" });
+      })
     }
   }
 }
