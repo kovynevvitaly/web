@@ -61,7 +61,8 @@ namespace WebBackend.Controllers
             var response = new
             {
                 accessToken = encodedJwt,
-                email = loginModel.Email
+                email = loginModel.Email,
+                userId = user.Id
             };
 
             return new OkObjectResult(response);
@@ -103,7 +104,8 @@ namespace WebBackend.Controllers
             var response = new
             {
                 accessToken = encodedJwt,
-                email = registerModel.Email
+                email = registerModel.Email,
+                userId = newUser.Id
             };
 
             return new OkObjectResult(response);

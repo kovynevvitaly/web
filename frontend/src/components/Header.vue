@@ -10,23 +10,30 @@
         <router-link :to="{name: 'Register'}" class="nav-link" active-class="link-active" v-if="!isAuthorized()">Регистрация</router-link>
         <a href="/" v-on:click="logOut" v-if="isAuthorized()">{{ email }}</a>
         <a href="/" v-on:click="logOut" v-if="isAuthorized()">Выйти</a>
+        <router-link :to="{name: 'NewsEditor'}" class="nav-link" active-class="link-active" v-if="isAdmin()">Создать новость</router-link>
       </nav>
     </div>
   </header>
 </template>
 
 <script>
+const adminId = 1;
+
 export default {
   name: "Header",
   data: function() {
     return {
       email: "",
+      userId: 0
     }
   },
   methods: {
     isAuthorized() {
       console.log("IsAuthorized: " + sessionStorage.getItem("accessToken"));
       return sessionStorage.getItem("accessToken") !== null;
+    },
+    isAdmin() {
+      return parseInt(this.userId) === adminId;
     },
     logOut() {
       sessionStorage.removeItem("accessToken");
@@ -35,6 +42,7 @@ export default {
   },
   mounted() {
     this.email = sessionStorage.getItem("email");
+    this.userId = sessionStorage.getItem("userId");
   }
 }
 </script>

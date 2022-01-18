@@ -32,6 +32,7 @@ export default {
       }).then((response) => {
         sessionStorage.setItem("accessToken", response.data.accessToken);
         sessionStorage.setItem("email", response.data.email);
+        sessionStorage.setItem("userId", response.data.userId);
         this.$router.push({ name: "Home" });
       })
     }

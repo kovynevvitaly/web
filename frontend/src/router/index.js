@@ -5,6 +5,7 @@ import Service from "@/views/Service";
 import News from "@/views/News";
 import Register from "@/views/Register";
 import Login from "@/views/Login";
+import NewsEditor from "@/views/NewsEditor";
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/editor',
+    name: 'NewsEditor',
+    component: NewsEditor
   }
 ]
 
