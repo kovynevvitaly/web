@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -46,8 +47,27 @@ namespace WebBackend.Controllers
         // POST: api/News
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<News>> PostNews(NewsModel newsModel)
         {
+            if (User.Identity == null)
+            {
+                return BadRequest();
+            }
+
+            var userName = User.Identity.Name;
+            var user = _context.Users.FirstOrDefault(u => u.Email == userName);
+
+            if (user == null)
+            {
+                return BadRequest();
+            }
+
+            if (user.Id != 1)
+            {
+                return BadRequest("User is not an admin");
+            }
+            
             var news = new News
             {
                 Content = newsModel.Content,
